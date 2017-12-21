@@ -385,7 +385,6 @@ a.btn-social,
 #mc_embed_signup .mc-field-group input {
     display: block;
     padding: 8px;
-    width: 45%;
     text-align: left;
     font-family: 'Montserrat', sans-serif;
 }
@@ -404,17 +403,12 @@ a.btn-social,
     transition: initial;
     color: #ffffff;
     display: initial;
-    font-size: inherit;
-    font-weight: inherit;
     height: initial;
     line-height: initial;
     margin: initial;
-    padding: initial;
-    text-align: initial;
     text-decoration: initial;
     vertical-align: initial;
     white-space: initial;
-    width: initial;
 
     text-align: center;
     background-color: transparent;
@@ -427,7 +421,7 @@ a.btn-social,
     font-size: 22px;
     text-transform: uppercase;
     padding: 10px;
-    width: 350px;
+    width: 300px;
 }
 
 #mc_embed_signup .button:hover {
@@ -665,6 +659,10 @@ a.btn-social,
     .tastebox {
         padding-top: 120px;
     }
+
+    #mc_embed_signup .mc-field-group input {
+        width: 100%;
+        }
 }
 
 
@@ -705,6 +703,9 @@ a.btn-social,
     .eventinformation {
         text-align: left;
     }
+    #mc_embed_signup .mc-field-group input {
+        width: 45%;
+        }
 }
 
 
@@ -730,6 +731,10 @@ a.btn-social,
         font-size: 50px;
         line-height: 65px;
     }
+
+    #mc_embed_signup .mc-field-group input {
+        width: 35%;
+        }
 }
 
 
@@ -760,7 +765,6 @@ a.btn-social,
     .imgdecalright {
         width: 15%;
         position: absolute;
-        right: 0;
         display: initial;
         right: -30px;
     }
