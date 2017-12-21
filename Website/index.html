@@ -7,8 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:900" rel="stylesheet">
-    <link rel="stylesheet" href="css/vendor/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
     <script src="https://use.fontawesome.com/418d6fc3aa.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
@@ -17,6 +15,8 @@
     <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="images/favicon/favicon.ico">
     <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/vendor/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
     <meta name="apple-mobile-web-app-title" content="Scoop">
     <meta name="application-name" content="Scoop">
     <meta name="msapplication-config" content="images/favicon/browserconfig.xml">
@@ -233,14 +233,6 @@
                 <div class="subscribe-panel">
 
                     <!-- Begin MailChimp Signup Form -->
-                    <style type="text/css">
-                        #mc_embed_signup {
-                            clear: left;
-                            font: 14px Helvetica, Arial, sans-serif;
-                        }
-                        /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-                    </style>
                     <div id="mc_embed_signup">
                         <form action="https://facebook.us17.list-manage.com/subscribe/post?u=d8fcc04ad28dc58ddf3c22369&amp;id=e020ada772" method="post"
                             id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
@@ -316,41 +308,143 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
         crossorigin="anonymous"></script>
 
-    <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+     <!--GMAPS STUFF-->
 
 
-    <script type="text/javascript">
-        var locations = [
-            ['Bondi Beach', -33.890542, 151.274856, 4],
-            ['Coogee Beach', -33.923036, 151.259052, 5],
-            ['Cronulla Beach', -34.028249, 151.157507, 3],
-            ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-            ['Maroubra Beach', -33.950198, 151.259302, 1]
-        ];
+     <script>
+        var marker;
 
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 10,
-            center: new google.maps.LatLng(-33.92, 151.25),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-
-        var infowindow = new google.maps.InfoWindow();
-
-        var marker, i;
-
-        for (i = 0; i < locations.length; i++) {
-            marker = new google.maps.Marker({
-                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                map: map
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: {
+                    lat: 50.8503396,
+                    lng: 4.351710300000036
+                }
             });
 
-            google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                return function () {
-                    infowindow.setContent(locations[i][0]);
-                    infowindow.open(map, marker);
-                }
-            })(marker, i));
+            //var icon = {
+            //url: 'images/marker.svg', // url
+            //size: new google.maps.Size(30, 30),
+            //};
+
+            //PUNT1
+
+            var contentString1 = '<div id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<h3>Ruien Feeste</h3>' +
+                '<p>1 en 2 September 2018</p>' +
+                '<p>Every first weekend of september, the small village of Ruien comes together to have the best village festival ever made. Family fun, even better with a scoop of ice cream.</p>' +
+                '<p><a href="http://www.ruienfeeste.be/">' +
+                'www.ruienfeeste.be</a></p>' +
+                '</div>' +
+                '</div>';
+
+            var infowindow1 = new google.maps.InfoWindow({
+                content: contentString1
+            });
+
+            var marker1 = new google.maps.Marker({
+                position: new google.maps.LatLng(50.7730586, 3.4859612999999854),
+                map: map,
+                animation: google.maps.Animation.DROP,
+            });
+            marker1.addListener('click', function () {
+                infowindow1.open(map, marker1);
+            })
+
+            //PUNT1 EINDE
+
+            //PUNT2
+
+            var contentString2 = '<div id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<h3>Gentse Feesten</h3>' +
+                '<p>20 tot en met 22 juli</p>' +
+                '<p>We will obviously be present at the Gentse Feesten 2018 edition! You can find us on the Vrijdagmarkt for a refreshing cone!</p>' +
+                '<p><a href="https://gentsefeesten.stad.gent/">' +
+                'gentsefeesten.stad.gent</a></p>' +
+                '</div>' +
+                '</div>';
+
+            var infowindow2 = new google.maps.InfoWindow({
+                content: contentString2
+            });
+
+            var marker2 = new google.maps.Marker({
+                position: new google.maps.LatLng(51.0571487, 3.726169499999969),
+                map: map,
+                animation: google.maps.Animation.DROP,
+            });
+            marker2.addListener('click', function () {
+                infowindow2.open(map, marker2);
+            })
+
+            //PUNT2 EINDE
+
+            //PUNT3
+
+            var contentString3 = '<div id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<h3>HAP Foodtruck Festival</h3>' +
+                '<p>15 tot en met 17 september</p>' +
+                '<p>THE Foodtruck event of Flanders. Come down to Herentals to taste our ice cream the hundreds of other delicious foods and drinks offered by our lovely colleagues.</p>' +
+                '<p><a href="http://hapfestival.be/">' +
+                'hapfestival.be</a></p>' +
+                '</div>' +
+                '</div>';
+
+            var infowindow3 = new google.maps.InfoWindow({
+                content: contentString3
+            });
+
+            var marker3 = new google.maps.Marker({
+                position: new google.maps.LatLng(51.17684769999999, 4.83644670000001),
+                map: map,
+                animation: google.maps.Animation.DROP,
+            });
+            marker3.addListener('click', function () {
+                infowindow3.open(map, marker3);
+            })
+
+            //PUNT3 EINDE
+
+            //PUNT4
+
+            var contentString4 = '<div id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<h3>Made Up Festival</h3>' +
+                '<p>From 18 till 20 may</p>' +
+                '<p>Come taste our ice cream at the bigges food truck convention of Flanders!</p>' +
+                '<p><a href="http://www.madeup.be/">' +
+                'madeup.be</a></p>' +
+                '</div>' +
+                '</div>';
+
+            var infowindow4 = new google.maps.InfoWindow({
+                content: contentString4
+            });
+
+            var marker4 = new google.maps.Marker({
+                position: new google.maps.LatLng(50.8194776, 3.2577263000000585),
+                map: map,
+                animation: google.maps.Animation.DROP,
+            });
+            marker4.addListener('click', function () {
+                infowindow4.open(map, marker4);
+            })
+
+            //PUNT4 EINDE
         }
+    </script>
+    <!--
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATf6gWd3fhzoe1gmWBBekxgWc5PC9ubHo&callback=initMap">
+    </script>-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap">
     </script>
 
 
