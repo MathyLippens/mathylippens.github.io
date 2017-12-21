@@ -24,6 +24,7 @@ p {
 body {
     color: #28202f;
     font-family: 'Montserrat', sans-serif !important;
+    overflow-x: hidden;
 }
 
 .navbar {
